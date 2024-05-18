@@ -1,0 +1,16 @@
+BanikOstrava Fortuna Liga Offensive 1 1 1
+Bohemians Fortuna Liga Deffensive 1 1 1
+CeskeBudejovice Fortuna Liga Deffensive 1 1 1
+HradecKralove Fortuna Liga Offensive 1 1 1
+Jablonec Fortuna Liga Deffensive 1 1 1
+Karivna Fortuna Liga Deffensive 1 1 1
+MladaBoleslav Fortuna Liga Offensive 1 1 1
+Pardubice Fortuna Liga Offensive 1 1 1
+SigmaOlomouc Fortuna Liga Offensive 1 1 1
+SlaviaPraha Fortuna Liga Offensive 1 1 1
+Slovacko Fortuna Liga Offensive 1 1 1
+SlovanLiberec Fortuna Liga Deffensive 1 1 1
+SpartaPraha Fortuna Liga Offensive 1 1 1
+Teplice Fortuna Liga Deffensive 1 1 1
+ViktoriaPlzen Fortuna Liga Deffensive 1 1 1
+Zlin Fortuna Liga Deffensive 1 1 1

@@ -41,7 +41,7 @@ Bohemians FortunaLiga Deffensive 2
 CeskeBudejovice FortunaLiga Deffensive 1
 HradecKralove FortunaLiga Offensive 2
 Jablonec FortunaLiga Deffensive 2
-Karivna FortunaLiga Deffensive 1
+Karvina FortunaLiga Deffensive 1
 MladaBoleslav FortunaLiga Offensive 2
 Pardubice FortunaLiga Offensive 1
 SigmaOlomouc FortunaLiga Offensive 3

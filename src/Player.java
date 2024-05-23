@@ -1,9 +1,17 @@
 public class Player {
     private String name;
-    private double energy;
-    private double rating;
-    private double coachsTrust;
-    private double productivity;
+    private int energy;
+    private int rating;
+    private Team team;
+    private int weekSalary;
+    private int money;
+
+    public Player(String name, int energy, int rating, int money) {
+        this.name = name;
+        this.energy = energy;
+        this.rating = rating;
+        this.money = money;
+    }
 
     public String getName() {
         return name;
@@ -13,35 +21,45 @@ public class Player {
         this.name = name;
     }
 
-    public double getEnergy() {
+    public int getEnergy() {
         return energy;
     }
 
-    public void setEnergy(double energy) {
-        this.energy = energy;
+    public void setEnergy(int energy) {
+        if (energy > 100){
+            this.energy = 100;
+        }else if (energy < 0){
+            this.energy = 0;
+        }else {
+            this.energy = energy;
+        }
     }
 
-    public double getRating() {
+    public int getRating() {
         return rating;
     }
 
-    public void setRating(double rating) {
-        this.rating = rating;
+    public void setRating(int rating) {
+        if (rating < 0){
+            this.rating = 0;
+        }else {
+            this.rating = rating;
+        }
     }
 
-    public double getProductivity() {
-        return productivity;
+    public Team getTeam() {
+        return team;
     }
 
-    public void setProductivity(double productivity) {
-        this.productivity = productivity;
+    public void setTeam(Team team) {
+        this.team = team;
     }
 
-    public double getCoachsTrust() {
-        return coachsTrust;
+    public void setWeekSalary(Team team) {
+        this.weekSalary = team.getSalary();
     }
 
-    public void setCoachsTrust(double coachsTrust) {
-        this.coachsTrust = rating*(energy/100)*productivity;
+    public void setMoney() {
+        this.money = money + weekSalary;
     }
 }

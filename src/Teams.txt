@@ -1,54 +1,54 @@
-Arsenal PremierLeague Offensive 7
-AstonVilla PremierLeague Offensive 5
-Bournemouth PremierLeague Deffensive 4
-Brentford PremierLeague Deffensive 4
-Brighton PremierLeague Offensive 5
-Burnley PremierLeague Offensive 3
-Chelsea PremierLeague Offensive 6
-CrystalPalace PremierLeague Offensive 4
-Everton PremierLeague Deffensive 4
-Fulham PremierLeague Deffensive 4
-Liverpool PremierLeague Offensive 7
-LutonTown PremierLeague Deffensive 3
-ManchasterCity PremierLeague Offensive 7
-ManchesterUnietd PremierLeague Deffensive 6
-NewcastleUnited PremierLeague Offensive 5
-Nottingham PremierLeague Deffensive 3
-SheffieldUnited PremierLeague Offensive 3
-Tottenham PremierLeague Offensive 6
-WestHam PremierLeague Offensive 5
-Wolves PremierLeague Deffensive 4
-Augsburg Bundesliga Deffensive 3
-Bayern Bundesliga Offensive 7
-Bochum Bundesliga Deffensive 2
-Darmstadt Bundesliga Deffensive 2
-Dortmund Bundesliga Offensive 6
-Frankfurt Bundesliga Deffensive 4
-Freiburg Bundesliga Deffensive 4
-Heidenheim Bundesliga Deffensive 3
-Hoffenheim Bundesliga Offensive 4
-Kolin Bundesliga Deffensive 3
-Leverkusen Bundesliga Offensive 6
-Mainz Bundesliga Deffensive 3
-Monchengladbach Bundesliga Offensive 4
-RBLeipzig Bundesliga Offensive 5
-Stuttgart Bundesliga Offensive 5
-UnionBerlin Bundesliga Deffensive 3
-WerderBremen Bundesliga Deffensive 4
-Wolfsburg Bundesliga Deffensive 4
-BanikOstrava FortunaLiga Offensive 3
-Bohemians FortunaLiga Deffensive 2
-CeskeBudejovice FortunaLiga Deffensive 1
-HradecKralove FortunaLiga Offensive 2
-Jablonec FortunaLiga Deffensive 2
-Karvina FortunaLiga Deffensive 1
-MladaBoleslav FortunaLiga Offensive 2
-Pardubice FortunaLiga Offensive 1
-SigmaOlomouc FortunaLiga Offensive 3
-SlaviaPraha FortunaLiga Offensive 4
-Slovacko FortunaLiga Offensive 3
-SlovanLiberec FortunaLiga Deffensive 2
-SpartaPraha FortunaLiga Offensive 4
-Teplice FortunaLiga Deffensive 2
-ViktoriaPlzen FortunaLiga Deffensive 4
-Zlin FortunaLiga Deffensive 1
+Arsenal PremierLeague Offensive 7 0
+AstonVilla PremierLeague Offensive 5 1
+Bournemouth PremierLeague Deffensive 4 2
+Brentford PremierLeague Deffensive 4 3
+Brighton PremierLeague Offensive 5 4
+Burnley PremierLeague Offensive 3 5
+Chelsea PremierLeague Offensive 6 6
+CrystalPalace PremierLeague Offensive 4 7
+Everton PremierLeague Deffensive 4 8
+Fulham PremierLeague Deffensive 4 9
+Liverpool PremierLeague Offensive 7 10
+LutonTown PremierLeague Deffensive 3 11
+ManchasterCity PremierLeague Offensive 7 12
+ManchesterUnietd PremierLeague Deffensive 6 13
+NewcastleUnited PremierLeague Offensive 5 14
+Nottingham PremierLeague Deffensive 3 15
+SheffieldUnited PremierLeague Offensive 3 16
+Tottenham PremierLeague Offensive 6 17
+WestHam PremierLeague Offensive 5 18
+Wolves PremierLeague Deffensive 4 19
+Augsburg Bundesliga Deffensive 3 0
+Bayern Bundesliga Offensive 7 1
+Bochum Bundesliga Deffensive 2 2
+Darmstadt Bundesliga Deffensive 2 3
+Dortmund Bundesliga Offensive 6 4
+Frankfurt Bundesliga Deffensive 4 5
+Freiburg Bundesliga Deffensive 4 6
+Heidenheim Bundesliga Deffensive 3 7
+Hoffenheim Bundesliga Offensive 4 8
+Kolin Bundesliga Deffensive 3 9
+Leverkusen Bundesliga Offensive 6 10
+Mainz Bundesliga Deffensive 3 11
+Monchengladbach Bundesliga Offensive 4 12
+RBLeipzig Bundesliga Offensive 5 13
+Stuttgart Bundesliga Offensive 5 14
+UnionBerlin Bundesliga Deffensive 3 15
+WerderBremen Bundesliga Deffensive 4 16
+Wolfsburg Bundesliga Deffensive 4 17
+BanikOstrava FortunaLiga Offensive 3 0
+Bohemians FortunaLiga Deffensive 2 1
+CeskeBudejovice FortunaLiga Deffensive 1 2
+HradecKralove FortunaLiga Offensive 2 3
+Jablonec FortunaLiga Deffensive 2 4
+Karvina FortunaLiga Deffensive 1 5
+MladaBoleslav FortunaLiga Offensive 2 6
+Pardubice FortunaLiga Offensive 1 7
+SigmaOlomouc FortunaLiga Offensive 3 8
+SlaviaPraha FortunaLiga Offensive 4 9
+Slovacko FortunaLiga Offensive 3 10
+SlovanLiberec FortunaLiga Deffensive 2 11
+SpartaPraha FortunaLiga Offensive 4 12
+Teplice FortunaLiga Deffensive 2 13
+ViktoriaPlzen FortunaLiga Deffensive 4 14
+Zlin FortunaLiga Deffensive 1 15

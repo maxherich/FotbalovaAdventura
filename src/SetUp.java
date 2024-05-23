@@ -7,19 +7,30 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class SetUp {
-    Random random = new Random();
-    Scanner scanner = new Scanner(System.in);
-    HashMap<String, Command> commands = new HashMap<>();
-    ArrayList<Team> rating1teams = new ArrayList<>();
-    ArrayList<Team> rating2teams = new ArrayList<>();
-    ArrayList<Team> rating3teams = new ArrayList<>();
-    ArrayList<Team> rating4teams = new ArrayList<>();
-    ArrayList<Team> rating5teams = new ArrayList<>();
-    ArrayList<Team> rating6teams = new ArrayList<>();
-    ArrayList<Team> rating7teams = new ArrayList<>();
-    League FortunaLiga = new League("FortunaLiga", 3);
-    League Bundesliga = new League("Bundesliga", 5);
-    League PremierLeague = new League("PremierLeague", 8);
+    private Random random = new Random();
+    private Scanner scanner = new Scanner(System.in);
+    private HashMap<String, Command> trainingCommands = new HashMap<>();
+    private ArrayList<Team> rating1teams = new ArrayList<>();
+    private ArrayList<Team> rating2teams = new ArrayList<>();
+    private ArrayList<Team> rating3teams = new ArrayList<>();
+    private ArrayList<Team> rating4teams = new ArrayList<>();
+    private ArrayList<Team> rating5teams = new ArrayList<>();
+    private ArrayList<Team> rating6teams = new ArrayList<>();
+    private ArrayList<Team> rating7teams = new ArrayList<>();
+    private League FortunaLiga = new League("FortunaLiga", 3);
+    private League Bundesliga = new League("Bundesliga", 5);
+    private League PremierLeague = new League("PremierLeague", 8);
+
+    private ArrayList <Product> shop = new ArrayList<>();
+    private Product energyGel = new Product("energyGel", 50);
+    private Product boots = new Product("boots", 500);
+
+    public void addCommands () {
+        trainingCommands.put("dayoff", new DayOff());
+        trainingCommands.put("easy",new EasyTraining());
+        trainingCommands.put("medium",new MediumTraining());
+        trainingCommands.put("hard", new HardTraining());
+    }
 
     private String text;
     private String[] strings;
@@ -28,7 +39,13 @@ public class SetUp {
         BufferedReader br = new BufferedReader(new FileReader("./src/Teams.txt"));
         while ((text = br.readLine()) != null){
             strings = text.split("\\s+");
-            newTeam = new Team(strings[0], Integer.parseInt(strings[3]), strings[2], strings[1]);
+            if (strings[1].equals(FortunaLiga.getName())){
+                newTeam = new Team(strings[0], Integer.parseInt(strings[3]), strings[2], FortunaLiga, Integer.parseInt(strings[4]));
+            }else if (strings[1].equals(Bundesliga.getName())){
+                newTeam = new Team(strings[0], Integer.parseInt(strings[3]), strings[2], Bundesliga, Integer.parseInt(strings[4]));
+            }else if (strings[1].equals(PremierLeague.getName())){
+                newTeam = new Team(strings[0], Integer.parseInt(strings[3]), strings[2], PremierLeague, Integer.parseInt(strings[4]));
+            }
             if (Integer.parseInt(strings[3]) == 1){
                 newTeam.setSalary(10);
                 rating1teams.add(newTeam);
@@ -136,8 +153,12 @@ public class SetUp {
             String team = scanner.next();
             for (Team t : teamsWithNewContract) {
                 if (t.getName().equals(team)) {
+                    if (player.getTeam()!=null){
+                        t.getLeague().getTeams().add(player.getTeam());
+                    }
                     player.setTeam(t);
                     player.setWeekSalary(t);
+                    t.getLeague().getTeams().remove(t.getSerialNumber());
                     wrongTeam = true;
                 }
             }
@@ -147,6 +168,16 @@ public class SetUp {
         }
         return "You have signed new contract!";
     }
+
+    public void setShop() {
+        shop.add(energyGel);
+        shop.add(boots);
+    }
+
+    public HashMap<String, Command> getTrainingCommands() {
+        return trainingCommands;
+    }
+
     public ArrayList<Team> getRating1teams() {
         return rating1teams;
     }
@@ -191,4 +222,5 @@ public class SetUp {
     public String toString() {
         return teamsWithNewContract + "";
     }
+
 }

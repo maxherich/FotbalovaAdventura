@@ -1,5 +1,3 @@
 public abstract class Command {
-    public abstract int execute();
-
-    public abstract boolean exit();
+    public abstract int execute(Player player, int training);
 }

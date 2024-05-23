@@ -2,7 +2,7 @@ public class DayOff extends Command{
 
 
     @Override
-    public void execute(Player player, int training) {
+    public int execute(Player player, int training) {
         if (training<5){
             player.setEnergy(player.getEnergy()+50);
             player.setRating(player.getRating()-2);
@@ -10,11 +10,6 @@ public class DayOff extends Command{
         }else {
             System.out.println("It is not training day");
         }
-    }
-
-
-    @Override
-    public boolean exit() {
-        return false;
+        return training;
     }
 }

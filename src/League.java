@@ -1,8 +1,9 @@
-import java.util.ArrayList;
+import java.util.*;
 
 public class League {
     private String name;
     private ArrayList <Team> teams = new ArrayList<>();
+    private ArrayList<Team> table = new ArrayList<>();
     private int numberOfUCLspots;
 
     public League(String name, int numberOfUCLspots) {
@@ -19,12 +20,34 @@ public class League {
         return teams;
     }
 
+    public String showTable(){
+        String string = name;
+        for (Team team : table){
+            string = string + "\n" + team.getName() + " " + team.getLeaguePoints() + "p";
+        }
+        return string + "";
+    }
+    public ArrayList<Team> getTable() {
+        return table;
+    }
+
     public int getNumberOfUCLspots() {
         return numberOfUCLspots;
     }
 
-    public void addteam (Team team){
+    public void addTeam (Team team){
         teams.add(team);
     }
+    public void addTeamToTable (Team team){
+        table.add(team);
+    }
 
+    public void setTable() {
+        Collections.sort(table);
+    }
+
+    @Override
+    public String toString() {
+        return name + "";
+    }
 }

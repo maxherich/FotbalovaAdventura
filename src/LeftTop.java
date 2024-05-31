@@ -1,7 +1,7 @@
 public class LeftTop extends MatchCommand {
 
     @Override
-    public void execute(Player player, Match match) {
+    public String execute(Player player, Match match) {
         if (match.getGoalSpots().get(0) == 1){
             System.out.println("You have scored!");
             match.setHomeTeamsGoals(match.getHomeTeamsGoals()+1);
@@ -10,5 +10,9 @@ public class LeftTop extends MatchCommand {
             System.out.println("You have missed.");
             match.setNumberOfGoalChances(match.getNumberOfGoalChances()-1);
         }
+        if (match.getNumberOfGoalChances()>0){
+            return "Match score is " + match.getHomeTeamsGoals() + ":" + match.getAwaysTeamsGoals();
+        }
+        return "";
     }
 }

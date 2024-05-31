@@ -59,7 +59,15 @@ public class Player {
         this.weekSalary = team.getSalary();
     }
 
-    public void setMoney() {
-        this.money = money + weekSalary;
+    public int getWeekSalary() {
+        return weekSalary;
+    }
+
+    public void setMoney(int money) {
+        this.money = money;
+    }
+
+    public int getMoney() {
+        return money;
     }
 }

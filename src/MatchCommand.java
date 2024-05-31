@@ -1,3 +1,3 @@
 public abstract class MatchCommand {
-    public abstract void execute(Player player, Match match);
+    public abstract String execute(Player player, Match match);
 }

@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Collections;
+
 public class Match {
     private Team homeTeam;
     private Team awayTeam;
@@ -5,6 +8,8 @@ public class Match {
     private int awaysTeamsGoals;
     private int numberOfMinutesPlayed;
     private int numberOfGoalChances;
+    private int chanceToScore;
+    private ArrayList <Integer> goalSpots = new ArrayList<>();
 
     public Match(Team homeTeam, Team awayTeam, int awaysTeamsGoals) {
         this.homeTeam = homeTeam;
@@ -12,8 +17,24 @@ public class Match {
         this.awaysTeamsGoals = awaysTeamsGoals;
     }
 
+    public void setHomeTeamsGoals(int homeTeamsGoals) {
+        this.homeTeamsGoals = homeTeamsGoals;
+    }
+
+    public int getHomeTeamsGoals() {
+        return homeTeamsGoals;
+    }
+
+    public int getAwaysTeamsGoals() {
+        return awaysTeamsGoals;
+    }
+
     public Team getAwayTeam() {
         return awayTeam;
+    }
+
+    public int getNumberOfMinutesPlayed() {
+        return numberOfMinutesPlayed;
     }
 
     public int getNumberOfGoalChances() {
@@ -21,7 +42,7 @@ public class Match {
     }
 
     public void setNumberOfMinutesPlayed(Player player) {
-        if (player.getEnergy()>90){
+        if (player.getEnergy()>=90){
             this.numberOfMinutesPlayed = 90;
         }else if (player.getEnergy()<90 && player.getEnergy()>=60){
             this.numberOfMinutesPlayed = 60;
@@ -32,7 +53,28 @@ public class Match {
         }
     }
 
-    public void setNumberOfGoalChances(Player player) {
+    public int getChanceToScore() {
+
+        return chanceToScore;
+    }
+
+    public void setChanceToScore(Player player) {
+        if (homeTeam.getTeamRating()+2 <= awayTeam.getTeamRating()){
+            this.chanceToScore = 1;
+        }else if (homeTeam.getTeamRating()+1 == awayTeam.getTeamRating() || homeTeam.getTeamRating() == awayTeam.getTeamRating() || homeTeam.getTeamRating()-1 == awayTeam.getTeamRating()){
+            this.chanceToScore = 2;
+        }else if (homeTeam.getTeamRating()-2 == awayTeam.getTeamRating() || homeTeam.getTeamRating()-3 == awayTeam.getTeamRating()){
+            this.chanceToScore = 3;
+        }else if (homeTeam.getTeamRating()-4 >= awayTeam.getTeamRating()){
+            this.chanceToScore = 4;
+        }
+    }
+
+    public void setNumberOfGoalChances(int numberOfGoalChances) {
+        this.numberOfGoalChances = numberOfGoalChances;
+    }
+
+    public void setNumberOfGoalChancesBeforeMatch(Player player) {
         if (homeTeam.getTeamStyle().equals("Deffensive") && awayTeam.getTeamStyle().equals("Deffensive")){
             this.numberOfGoalChances = 4;
         }else if ((homeTeam.getTeamStyle().equals("Offensive") && awayTeam.getTeamStyle().equals("Deffensive")) || (homeTeam.getTeamStyle().equals("Deffensive") && awayTeam.getTeamStyle().equals("Offensive"))){
@@ -49,4 +91,34 @@ public class Match {
             this.numberOfGoalChances = 0;
         }
     }
+
+    public ArrayList<Integer> getGoalSpots() {
+        return goalSpots;
+    }
+
+    public void goalChanceAction(){
+        goalSpots.clear();
+        for (int i = 0; i < chanceToScore; i++){
+            goalSpots.add(1);
+        }
+        while (goalSpots.size() < 6){
+            goalSpots.add(0);
+        }
+        Collections.shuffle(goalSpots);
+        System.out.println("Choose spot you want to shoot in\n __________________________\n|L-Top      M-Top     R-Top|\n|                          |\n|L-Bott    M-Bott    R-Bott|\n");
+    }
+
+    public void matchResult(){
+        System.out.println("Final score is " + homeTeamsGoals + ":" + awaysTeamsGoals + "\n");
+        if (homeTeamsGoals>awaysTeamsGoals){
+            homeTeam.setLeaguePoints(homeTeam.getLeaguePoints()+3);
+            System.out.println("You have won!\nYou gain 3 points for this match\nYour teams league points is: " + homeTeam.getLeaguePoints() + "\n");
+        }else if (homeTeamsGoals<awaysTeamsGoals){
+            System.out.println("You have lost.\nYou gain 0 points for this match\nYour teams league points is: " + homeTeam.getLeaguePoints() + "\n");
+        }else {
+            homeTeam.setLeaguePoints(homeTeam.getLeaguePoints()+1);
+            System.out.println("Its draw.\nYou gain 1 point for this match\nYour teams league points is: " + homeTeam.getLeaguePoints() + "\n");
+        }
+    }
+
 }

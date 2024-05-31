@@ -6,4 +6,9 @@ public class Product {
         this.name = name;
         this.prize = prize;
     }
+
+    @Override
+    public String toString() {
+        return name + ": " + prize + "$";
+    }
 }

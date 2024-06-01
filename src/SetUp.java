@@ -225,4 +225,8 @@ public class SetUp {
     public ArrayList<Team> getUCLteams() {
         return UCLteams;
     }
+
+    public ArrayList<Team> getTeamsWithNewContract() {
+        return teamsWithNewContract;
+    }
 }

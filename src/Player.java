@@ -3,8 +3,8 @@ public class Player {
     private int energy;
     private int rating;
     private Team team;
-    private int weekSalary;
-    private int money;
+    private int weekSalary; // players weekly income
+    private int money; // overall money player have
 
     public Player(String name, int energy, int rating, int money) {
         this.name = name;
@@ -17,15 +17,19 @@ public class Player {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String name) { //regex for name
+        if (name.matches("^[A-Z]{1}[a-z]+$")){
+            this.name = name;
+        }else {
+            System.out.println("This name is not available");
+        }
     }
 
     public int getEnergy() {
         return energy;
     }
 
-    public void setEnergy(int energy) {
+    public void setEnergy(int energy) { // enrgy cant be more than 100 and less than 0
         if (energy > 100){
             this.energy = 100;
         }else if (energy < 0){
@@ -39,7 +43,7 @@ public class Player {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(int rating) { // rating cant be less than 0
         if (rating < 0){
             this.rating = 0;
         }else {

@@ -7,8 +7,6 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class SetUp {
-    private Random random = new Random();
-    private Scanner scanner = new Scanner(System.in);
     private HashMap<String, TrainingCommand> trainingCommands = new HashMap<>();
     private HashMap<String, MatchCommand> matchCommands = new HashMap<>();
     private HashMap<String, OtherCommand> otherCommands = new HashMap<>();
@@ -23,13 +21,13 @@ public class SetUp {
     private League FortunaLiga = new League("FortunaLiga", 3);
     private League Bundesliga = new League("Bundesliga", 5);
     private League PremierLeague = new League("PremierLeague", 8);
-    private ArrayList <Team> UCLteams = new ArrayList<>();
+    private ArrayList <Team> UCLteams = new ArrayList<>(); // teams that qualified for UCL
 
     private ArrayList <Product> shop = new ArrayList<>();
     private Product energyGel = new Product("energyGel", 50);
     private Product boots = new Product("boots", 500);
 
-    public void addCommands () {
+    public void addCommands () { // adding commands to arraylist of commands
         trainingCommands.put("dayoff", new DayOff());
         trainingCommands.put("easy",new EasyTraining());
         trainingCommands.put("medium",new MediumTraining());
@@ -50,16 +48,16 @@ public class SetUp {
     private String text;
     private String[] strings;
     private Team newTeam;
-    public void createTeams ()throws IOException{
+    public void createTeams ()throws IOException{ //creating teams from text file
         BufferedReader br = new BufferedReader(new FileReader("./src/Teams.txt"));
         while ((text = br.readLine()) != null){
             strings = text.split("\\s+");
             if (strings[1].equals(FortunaLiga.getName())){
-                newTeam = new Team(strings[0], Integer.parseInt(strings[3]), strings[2], FortunaLiga, Integer.parseInt(strings[4]));
+                newTeam = new Team(strings[0], Integer.parseInt(strings[3]), strings[2], FortunaLiga);
             }else if (strings[1].equals(Bundesliga.getName())){
-                newTeam = new Team(strings[0], Integer.parseInt(strings[3]), strings[2], Bundesliga, Integer.parseInt(strings[4]));
+                newTeam = new Team(strings[0], Integer.parseInt(strings[3]), strings[2], Bundesliga);
             }else if (strings[1].equals(PremierLeague.getName())){
-                newTeam = new Team(strings[0], Integer.parseInt(strings[3]), strings[2], PremierLeague, Integer.parseInt(strings[4]));
+                newTeam = new Team(strings[0], Integer.parseInt(strings[3]), strings[2], PremierLeague);
             }
             if (Integer.parseInt(strings[3]) == 1){
                 newTeam.setSalary(10);
@@ -94,8 +92,9 @@ public class SetUp {
         }
     }
 
-    private ArrayList <Team> teamsWithNewContract = new ArrayList<>();
-    public void newContract (Player player){
+    private ArrayList <Team> teamsWithNewContract = new ArrayList<>(); // teams that are offering player a new contract
+    public void newContract (Player player){ //setting teams that will offer player a new contract based on his raitng
+        Random random = new Random();
         teamsWithNewContract.clear();
         if (player.getRating() < 200){
             System.out.println("Rating of these teams is "+ 1 + " and weekly salary is " + 10 + "$\nWrite name of that team you want to play in next season.");
@@ -163,18 +162,20 @@ public class SetUp {
         }
     }
 
-    public String signContract (Player player){
+    public String signContract (Player player){ // method to choose one of the teams and sign a contract
+        Scanner scanner = new Scanner(System.in);
         boolean wrongTeam = false;
         while (!wrongTeam){
             String team = scanner.next();
+            team = team.toLowerCase();
             for (Team t : teamsWithNewContract) {
-                if (t.getName().equals(team)) {
+                if (t.getName().toLowerCase().equals(team)) {
                     if (player.getTeam()!=null){
                         t.getLeague().getTeams().add(player.getTeam());
                     }
                     player.setTeam(t);
                     player.setWeekSalary(t);
-                    t.getLeague().getTeams().remove(t.getSerialNumber());
+                    t.getLeague().getTeams().remove(t);
                     wrongTeam = true;
                 }
             }
@@ -205,37 +206,8 @@ public class SetUp {
     public HashMap<String, OtherCommand> getOtherCommands() {
         return otherCommands;
     }
-
     public ArrayList<Team> getTeams() {
         return teams;
-    }
-
-    public ArrayList<Team> getRating1teams() {
-        return rating1teams;
-    }
-
-    public ArrayList<Team> getRating2teams() {
-        return rating2teams;
-    }
-
-    public ArrayList<Team> getRating3teams() {
-        return rating3teams;
-    }
-
-    public ArrayList<Team> getRating4teams() {
-        return rating4teams;
-    }
-
-    public ArrayList<Team> getRating5teams() {
-        return rating5teams;
-    }
-
-    public ArrayList<Team> getRating6teams() {
-        return rating6teams;
-    }
-
-    public ArrayList<Team> getRating7teams() {
-        return rating7teams;
     }
 
     public League getFortunaLiga() {

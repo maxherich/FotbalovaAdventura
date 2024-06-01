@@ -4,11 +4,10 @@ public class League {
     private String name;
     private ArrayList <Team> teams = new ArrayList<>();
     private ArrayList<Team> table = new ArrayList<>();
-    private int numberOfUCLspots;
+    private int numberOfUCLspots; //number of teams that qualify to UCL from this league
 
     public League(String name, int numberOfUCLspots) {
         this.name = name;
-
         this.numberOfUCLspots = numberOfUCLspots;
     }
 
@@ -20,7 +19,7 @@ public class League {
         return teams;
     }
 
-    public String showTable(){
+    public String showTable(){ //sout league table
         String string = name;
         for (Team team : table){
             string = string + "\n" + team.getName() + " " + team.getLeaguePoints() + "p";

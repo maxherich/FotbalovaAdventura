@@ -5,19 +5,17 @@ public class Team implements Comparable<Team> {
     private int teamRating;
     private String teamStyle;
     private League league;
-    private int salary;
-    private int serialNumber;
+    private int salary; // weekly money player will get to play for this team
     private int leaguePoints;
 
-    public Team(String name, int teamRating, String teamStyle, League league, int serialNumber) {
+    public Team(String name, int teamRating, String teamStyle, League league) {
         this.name = name;
         this.teamRating = teamRating;
         this.teamStyle = teamStyle;
         this.league = league;
-        this.serialNumber = serialNumber;
     }
 
-    public void setPoints (){
+    public void setPoints (){ //setting points for teams that are not controled based on their quality and league
         Random random = new Random();
         if (teamRating == 1){
             this.leaguePoints = random.nextInt(20)+11;
@@ -87,11 +85,6 @@ public class Team implements Comparable<Team> {
     public int getSalary() {
         return salary;
     }
-
-    public int getSerialNumber() {
-        return serialNumber;
-    }
-
     public void setLeaguePoints(int leaguePoints) {
         this.leaguePoints = leaguePoints;
     }

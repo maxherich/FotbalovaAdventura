@@ -8,7 +8,7 @@ public class Match {
     private int awaysTeamsGoals;
     private int numberOfMinutesPlayed;
     private int numberOfGoalChances;
-    private int chanceToScore;
+    private int chanceToScore; // what is chance out of 6, to score
     private ArrayList <Integer> goalSpots = new ArrayList<>();
 
     public Match(Team homeTeam, Team awayTeam, int awaysTeamsGoals) {
@@ -41,7 +41,7 @@ public class Match {
         return numberOfGoalChances;
     }
 
-    public void setNumberOfMinutesPlayed(Player player) {
+    public void setNumberOfMinutesPlayed(Player player) { //setting minutes that will player play based on his energy
         if (player.getEnergy()>=90){
             this.numberOfMinutesPlayed = 90;
         }else if (player.getEnergy()<90 && player.getEnergy()>=60){
@@ -58,7 +58,7 @@ public class Match {
         return chanceToScore;
     }
 
-    public void setChanceToScore(Player player) {
+    public void setChanceToScore(Player player) { //setting chance to score based on teams quality
         if (homeTeam.getTeamRating()+2 <= awayTeam.getTeamRating()){
             this.chanceToScore = 1;
         }else if (homeTeam.getTeamRating()+1 == awayTeam.getTeamRating() || homeTeam.getTeamRating() == awayTeam.getTeamRating() || homeTeam.getTeamRating()-1 == awayTeam.getTeamRating()){
@@ -74,7 +74,7 @@ public class Match {
         this.numberOfGoalChances = numberOfGoalChances;
     }
 
-    public void setNumberOfGoalChancesBeforeMatch(Player player) {
+    public void setNumberOfGoalChancesBeforeMatch(Player player) { //setting number of chances that will player get to score
         if (homeTeam.getTeamStyle().equals("Deffensive") && awayTeam.getTeamStyle().equals("Deffensive")){
             this.numberOfGoalChances = 4;
         }else if ((homeTeam.getTeamStyle().equals("Offensive") && awayTeam.getTeamStyle().equals("Deffensive")) || (homeTeam.getTeamStyle().equals("Deffensive") && awayTeam.getTeamStyle().equals("Offensive"))){
@@ -83,7 +83,7 @@ public class Match {
             this.numberOfGoalChances = 6;
         }
 
-        if (numberOfMinutesPlayed<90 && numberOfMinutesPlayed>=60){
+        if (numberOfMinutesPlayed<90 && numberOfMinutesPlayed>=60){ //setting how minutes played affect the game fewer minutes = fewer chances
             this.numberOfGoalChances--;
         }else if (numberOfMinutesPlayed<60 && numberOfMinutesPlayed>=30){
             this.numberOfGoalChances -= 2;
@@ -96,7 +96,7 @@ public class Match {
         return goalSpots;
     }
 
-    public void goalChanceAction(){
+    public void goalChanceAction(){ //setting how many spots are goals based on players chance to score
         goalSpots.clear();
         for (int i = 0; i < chanceToScore; i++){
             goalSpots.add(1);
@@ -108,7 +108,7 @@ public class Match {
         System.out.println("Choose spot you want to shoot in\n __________________________\n|L-Top      M-Top     R-Top|\n|                          |\n|L-Bott    M-Bott    R-Bott|\n");
     }
 
-    public void matchResult(){
+    public void matchResult(){ //sout match result
         System.out.println("Final score is " + homeTeamsGoals + ":" + awaysTeamsGoals + "\n");
         if (homeTeamsGoals>awaysTeamsGoals){
             homeTeam.setLeaguePoints(homeTeam.getLeaguePoints()+3);

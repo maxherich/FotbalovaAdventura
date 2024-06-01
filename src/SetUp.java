@@ -49,7 +49,7 @@ public class SetUp {
     private String[] strings;
     private Team newTeam;
     public void createTeams ()throws IOException{ //creating teams from text file
-        BufferedReader br = new BufferedReader(new FileReader("./src/Teams.txt"));
+        BufferedReader br = new BufferedReader(new FileReader("C:/PROGRAMOVÁNÍ/FotbalovaAdventura/src/Teams.txt"));
         while ((text = br.readLine()) != null){
             strings = text.split("\\s+");
             if (strings[1].equals(FortunaLiga.getName())){
